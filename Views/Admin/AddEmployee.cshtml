@@ -1,0 +1,27 @@
+﻿@model GymApp.Models.Admin
+@{
+    ViewBag.Title = "AddEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Employee</h2>
+
+<form action="AddEmployee" method="post">
+    <table>
+        <tr class="app-form">
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        <tr class="app-form">
+            <td>@Html.TextBox("FName")</td>
+            <td>@Html.TextBox("LName")</td>
+        </tr>
+        <tr class="app-form">
+            <th>Salary</th>
+        </tr>
+        <tr class="app-form">
+            <td>@Html.TextBox("earnings")</td>
+        </tr>
+    </table>
+    <button type="submit">Enter</button>
+</form>

@@ -71,5 +71,28 @@ namespace GymApp.Controllers
         {
             return View(user);
         }
+
+        public ActionResult AddEmployee()
+        {
+            return View(user);
+        }
+
+        [HttpPost]
+        public ActionResult AddEmployee(String FName, String LName, String earnings)
+        {
+            int lastid = user.Employees.Last().Id;
+            Employee newGuy = new Employee()
+            {
+                Id = lastid,
+                FirstName = FName,
+                LastName = LName,
+                Salary = int.Parse(earnings),
+                Trainees = new List<Customer>()
+            };
+
+            user.Employees.Add(newGuy);
+
+            return View("Employees", user);
+        }
     }
 }

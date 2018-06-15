@@ -7,6 +7,7 @@ using GymApp.Models;
 
 namespace GymApp.Controllers
 {
+    //Test object until database is introduced
     public class EmployeeController : Controller
     {
         Employee user = new Employee()
@@ -27,7 +28,8 @@ namespace GymApp.Controllers
                 }
             }
         };
-        /*GET: Employee/Index
+        /**
+         * GET: Employee/Index
          * Display user's profile
          */
         public ActionResult Index()
@@ -35,7 +37,8 @@ namespace GymApp.Controllers
             return View(user);
         }
 
-        /*Get: Employee/Trainees
+        /**
+         * Get: Employee/Trainees
          * Display all the customer for this employee.
          */
         public ActionResult Trainees()

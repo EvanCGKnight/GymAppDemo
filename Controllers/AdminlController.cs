@@ -9,6 +9,7 @@ namespace GymApp.Controllers
 {
     public class AdminController : Controller
     {
+        //Test object until database is introduced
         private Admin user = new Admin()
         {
             Name = "Evan Knight",
@@ -71,12 +72,24 @@ namespace GymApp.Controllers
         {
             return View(user);
         }
-
+        
+        /**
+         * Get: Admin/AddEmployee
+         * Displays form for adding 
+         * a new employee.
+         */ 
         public ActionResult AddEmployee()
         {
             return View(user);
         }
 
+        /**
+         * Post: Admin/AddEmployee
+         * @param FName, a first name
+         * @param LName, a last name
+         * @param earnings, a salary amount 
+         * @return the Employees view.
+         */
         [HttpPost]
         public ActionResult AddEmployee(String FName, String LName, String earnings)
         {

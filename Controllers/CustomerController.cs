@@ -7,6 +7,7 @@ using GymApp.Models;
 
 namespace GymApp.Controllers
 {
+    //Test object until database is introduced
     public class CustomerController : Controller
     {
         Customer user = new Customer()
@@ -26,7 +27,8 @@ namespace GymApp.Controllers
             Payment = 100m
 
         };
-        /** GET: Customer/Index
+        /** 
+         * GET: Customer/Index
          * Display user profile
          */
         public ActionResult Index()

@@ -1,0 +1,45 @@
+﻿@model GymApp.Models.Customer
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime today = DateTime.Now;
+
+    int thisMonth = today.Month;
+    int thisYear = today.Year;
+}
+
+<h2>Welcome back @Model.Name</h2>
+
+
+<table>
+    <tr>
+        <td>Name: @Model.Name</td>
+        <td>ID Number: @Model.Id</td>
+    </tr>
+    <tr>
+        <td>Membership: @Model.Membership</td>
+        @if(Model.ExpYear >= thisYear && Model.expMonth > thisMonth)
+        {
+        <td>Expiration: @Model.expMonth / @Model.expYear</td>
+        }
+        else
+        {
+            <td>Expired</td>
+        }
+    </tr>
+    <tr>
+        <td>Payment: @Model.payment</td>
+    </tr>
+    <tr>
+        <td>Trainer Wanted: @Model.trainer</td>
+        @if (Model.trainer)
+        {
+            <td>Trainer: @Model.trainerName.name</td>
+        }
+        else
+        {
+            <td>Individule</td>
+        }
+    </tr>
+</table>
+

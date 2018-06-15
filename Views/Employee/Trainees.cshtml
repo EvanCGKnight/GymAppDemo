@@ -1,0 +1,37 @@
+﻿@model GymApp.Models.Employee
+@{
+    ViewBag.Title = "Trainees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime today = DateTime.Now;
+
+    int thisMonth = today.Month;
+    int thisYear = today.Year;
+}
+
+@Html.Partial("_NavBar")
+
+<h2>Trainees</h2>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Membership</th>
+        <th>Expiration month/year</th>
+    </tr>
+    @foreach (var customer in Model.trainees)
+    {
+        <tr>
+            <td>@customer.name</td>
+            <td>@customer.membership</td>
+
+            @if (customer.expYear >= thisYear && customer.expMonth > thisMonth)
+            {
+                <td>Expiration: @customer.expMonth / @customer.expYear</td>
+            }
+            else
+            {
+                <td>Expired</td>
+            }
+        </tr>
+    }
+</table>

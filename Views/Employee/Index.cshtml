@@ -1,0 +1,21 @@
+﻿@model GymApp.Models.Employee
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@Html.Partial("_NavBar")
+
+<h2>Welcome back @Model.name</h2>
+
+<table>
+    <tr>
+        <td>Name: @Model.name</td>
+        <td>ID Number: @Model.id</td>
+    </tr>
+    <tr>
+        <td>Salary: @Model.salary</td>
+    </tr>
+</table>
+

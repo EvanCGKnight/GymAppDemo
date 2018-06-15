@@ -1,0 +1,34 @@
+﻿@model GymApp.Models.Admin
+@{
+    ViewBag.Title = "Employees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_NavBar", Model)
+
+<h2>Employees</h2>
+
+@if (Model.Employees.Count > 0)
+{
+    <table>
+        <tr>
+            <th>ID Number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Number of trainees</th>
+        </tr>
+        @foreach (var employee in Model.Employees)
+        {
+            <tr>
+                <td>@employee.Id</td>
+                <td>@employee.FirstName</td>
+                <td>@employee.LastName</td>
+                <td>@employee.Trainees.Count</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>We need to hire more people!</p>
+}

@@ -1,0 +1,34 @@
+﻿@model GymApp.Models.Admin
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_NavBar")
+
+<h2>Customer</h2>
+
+@if (Model.Customers.Count > 0)
+{
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Membership</th>
+            <th>Expiration</th>
+        </tr>
+        @foreach (var customer in Model.Customers)
+        {
+            <tr>
+                <td>@customer.FirstName</td>
+                <td>@customer.LastName</td>
+                <td>@customer.Membership</td>
+                <td>@customer.ExpMonth/@customer.ExpYear</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>We need to hire more people!</p>
+}

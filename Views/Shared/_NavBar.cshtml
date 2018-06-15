@@ -1,0 +1,86 @@
+﻿@{ 
+    GymApp.Models.AdminViewModel admin = new GymApp.Models.AdminViewModel();
+
+    GymApp.Models.Customer customer = new GymApp.Models.Customer();
+
+    GymApp.Models.Employee employee = new GymApp.Models.Employee();
+
+    var user = Model.GetType();
+
+    var check = user == admin.GetType();
+}
+
+
+@if (check)
+{
+    <div class="navbar navbar-inverse navbar-fixed-top navbar-colour">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Mount Olympus Gym", "Index", "AdminViewModel", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Profile", "Index", "AdminViewModel")</li>
+                    <li>@Html.ActionLink("Employees", "Employees", "AdminViewModel")</li>
+                    <li>@Html.ActionLink("Customer", "Customer", "AdminViewModel")</li>
+              </ul>
+           </div>
+        </div>
+    </div>
+} 
+
+@{ 
+    check = user == customer.GetType();
+}
+
+@if (check)
+{
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Mount Olympus Gym", "Index", "Customer", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Profile", "Index", "Customer")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+
+@{ 
+    check = user == employee.GetType();
+}
+
+@if (check)
+{
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Mount Olympus Gym", "Index", "Employee", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Profile", "Index", "Employee")</li>
+                    <li>@Html.ActionLink("Customer", "Trainees", "Employee")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}

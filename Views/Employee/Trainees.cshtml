@@ -2,10 +2,7 @@
 @{
     ViewBag.Title = "Trainees";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    DateTime today = DateTime.Now;
 
-    int thisMonth = today.Month;
-    int thisYear = today.Year;
 }
 
 @Html.Partial("_NavBar")
@@ -18,15 +15,15 @@
         <th>Membership</th>
         <th>Expiration month/year</th>
     </tr>
-    @foreach (var customer in Model.trainees)
+    @foreach (var customer in Model.Trainees)
     {
         <tr>
-            <td>@customer.name</td>
-            <td>@customer.membership</td>
+            <td>@customer.FirstName @Model.LastName</td>
+            <td>@customer.Membership</td>
 
-            @if (customer.expYear >= thisYear && customer.expMonth > thisMonth)
+            @if (customer.ExpYear >= DateTime.Now.Year && customer.ExpMonth > DateTime.Now.Month)
             {
-                <td>Expiration: @customer.expMonth / @customer.expYear</td>
+                <td>Expiration: @customer.ExpMonth / @customer.ExpYear</td>
             }
             else
             {

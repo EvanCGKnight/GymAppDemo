@@ -8,6 +8,7 @@ namespace GymApp.Models
     public class Customer
     {
         public decimal Payment { get; set; }
+        public decimal Credit { get; set; }
         public int Id { get; set; }
         public string Membership { get; set; }
         public string FirstName { get; set; }

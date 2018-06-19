@@ -8,19 +8,19 @@
     int thisYear = today.Year;
 }
 
-<h2>Welcome back @Model.Name</h2>
+<h2>Welcome back @Model.FirstName</h2>
 
 
 <table>
     <tr>
-        <td>Name: @Model.Name</td>
+        <td>Name: @Model.FirstName @Model.LastName</td>
         <td>ID Number: @Model.Id</td>
     </tr>
     <tr>
         <td>Membership: @Model.Membership</td>
-        @if(Model.ExpYear >= thisYear && Model.expMonth > thisMonth)
+        @if(Model.ExpYear >= thisYear && Model.ExpMonth > thisMonth)
         {
-        <td>Expiration: @Model.expMonth / @Model.expYear</td>
+        <td>Expiration: @Model.ExpMonth / @Model.ExpYear</td>
         }
         else
         {
@@ -28,13 +28,14 @@
         }
     </tr>
     <tr>
-        <td>Payment: @Model.payment</td>
+        <td>Payment: @Model.Payment</td>
+        <td>Credits: @Model.Credit</td>
     </tr>
     <tr>
-        <td>Trainer Wanted: @Model.trainer</td>
-        @if (Model.trainer)
+        <td>Trainer Wanted: @Model.Trainer</td>
+        @if (Model.Trainer)
         {
-            <td>Trainer: @Model.trainerName.name</td>
+            <td>Trainer: @Model.TrainerName.FirstName @Model.TrainerName.LastName</td>
         }
         else
         {

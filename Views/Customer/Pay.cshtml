@@ -1,0 +1,35 @@
+﻿@model GymApp.Models.Customer
+@{
+    ViewBag.Title = "Pay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Payment</h2>
+
+<form action="Pay" method="post">
+    <div>
+        <h3>Membership</h3>
+        @Html.RadioButtonFor(Model => Model.Membership, "Full Package") Full Package (90)
+        <p>List of details for this package</p>
+
+        @Html.RadioButtonFor(Model => Model.Membership, "Casual") Casual (75)
+        <p>List of details for this package</p>
+    </div>
+
+    <div>
+        <h3>Trainer</h3>
+        @Html.RadioButtonFor(Model => Model.Trainer, "True")  Yes (10)<br />
+
+        @Html.RadioButtonFor(Model => Model.Trainer, "False") No
+    </div>
+    <div>
+        <h3>Renew</h3>
+        @Html.RadioButton("Renew", "True") Yes
+        <br />
+        @if (Model.ExpYear < DateTime.Now.Year || Model.ExpMonth < DateTime.Now.Month)
+        {
+        <div>@Html.RadioButton("Renew", "False") No</div>  
+        }
+    </div>
+    <button type="submit">Enter</button>
+</form>

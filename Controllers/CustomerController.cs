@@ -38,11 +38,28 @@ namespace GymApp.Controllers
             return View(user);
         }
 
+        /**
+         * GET: Customer/ChangeAccount
+         * Display a form that allows the user
+         * to change their information.
+         */
         public ActionResult ChangeAccount()
         {
             return View(user);
         }
 
+        /**
+         * (Should be a Put)
+         * Post: Customer/ChangeAccount
+         * 
+         * @param FName, a first name
+         * @param LName, a last name
+         * @param Membership, a membership to the gym
+         * @param Trainer, if they would like a trainer
+         * 
+         * @return the pay view
+         * @return the index view
+         */
         [HttpPost]
         public ActionResult ChangeAccount(String FName, String LName, String Membership, String Trainer)
         {
@@ -67,11 +84,26 @@ namespace GymApp.Controllers
             return View("Index", user);
         }
 
+        /**
+        * GET: Customer/Pay
+        * Display a form that a user 
+        * will use to select a payment.
+        */
         public ActionResult Pay()
         {
             return View(user);
         }
 
+        /**
+         * (Should be a Put)
+         * Post: Customer/Pay
+         * 
+         * @param Membership, a membership to the gym
+         * @param Trainer, if they would like a trainer
+         * @param Renew, if the would like to renew their membership
+         * 
+         * @return the index view
+         */
         [HttpPost]
         public ActionResult Pay(String Membership, String Trainer, String Renew)
         {
